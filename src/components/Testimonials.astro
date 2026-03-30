@@ -1,0 +1,106 @@
+---
+const reviews = [
+  {
+    name:    "Sophie & James",
+    role:    "Wedding, June 2024",
+    avatar:  "💍",
+    color:   "from-pink-300 to-pink-500",
+    stars:   5,
+    quote:   "Our wedding cake was the talk of the whole reception. Three tiers of lemon & elderflower perfection, and the sugar-flower decorations looked so real our guests thought they were fresh. Olivia listened to every detail and delivered something beyond our wildest dreams.",
+  },
+  {
+    name:    "Marcus T.",
+    role:    "Birthday Cake, March 2025",
+    avatar:  "🎉",
+    color:   "from-violet-300 to-violet-500",
+    stars:   5,
+    quote:   "I asked for a chocolate sculpture of my dog and I half expected a disaster. What I got was art. People were literally taking photos before cutting it. Will be ordering for every birthday from now on.",
+  },
+  {
+    name:    "Priya & The Team",
+    role:    "Corporate Catering, Jan 2025",
+    avatar:  "🏢",
+    color:   "from-sky-300 to-sky-500",
+    stars:   5,
+    quote:   "Olivia catered our annual company party with a full dessert grazing table and individually boxed macarons. Presentation was stunning. Every single colleague came back for seconds. The invoice was fair and the process was seamless — we've already booked her for next year.",
+  },
+];
+---
+
+<section id="reviews" class="px-4 py-20 sm:px-6 sm:py-24">
+  <div class="mx-auto max-w-6xl">
+
+    <!-- Section header -->
+    <div class="mb-12 flex flex-col items-center text-center">
+      <span
+        class="mb-3 inline-block rounded-full bg-amber-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-600"
+      >
+        Happy Customers
+      </span>
+      <h2
+        class="max-w-xl text-3xl font-black text-clay-text sm:text-4xl md:text-5xl"
+        style="font-family: 'Nunito', sans-serif;"
+      >
+        Words That Make Us
+        <span class="clay-gradient-text"> Blush</span>
+      </h2>
+    </div>
+
+    <!-- Review grid -->
+    <div class="grid gap-5 md:grid-cols-3">
+      {reviews.map((r) => (
+        <article
+          class="group relative flex flex-col gap-5 overflow-hidden rounded-4xl bg-white/65 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3"
+          style="box-shadow: var(--shadow-clay-card);"
+        >
+          <div
+            class="pointer-events-none absolute inset-0 rounded-4xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            style="box-shadow: var(--shadow-clay-card-hover);"
+            aria-hidden="true"
+          ></div>
+
+          <div class="relative z-10 flex flex-col gap-5">
+            <!-- Stars -->
+            <div class="flex gap-0.5 text-clay-warning text-lg" aria-label={`${r.stars} stars`}>
+              {"★".repeat(r.stars)}
+            </div>
+
+            <!-- Quote -->
+            <blockquote class="text-sm font-medium leading-relaxed text-clay-muted">
+              "{r.quote}"
+            </blockquote>
+
+            <!-- Author -->
+            <div class="mt-auto flex items-center gap-3 border-t border-clay-accent/10 pt-4">
+              <div
+                class={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br ${r.color} text-lg`}
+                style="box-shadow: var(--shadow-clay-button);"
+                aria-hidden="true"
+              >
+                {r.avatar}
+              </div>
+              <div>
+                <p
+                  class="text-sm font-extrabold text-clay-text"
+                  style="font-family: 'Nunito', sans-serif;"
+                >
+                  {r.name}
+                </p>
+                <p class="text-xs font-medium text-clay-muted">{r.role}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA below reviews -->
+    <div class="mt-10 flex justify-center">
+      <p class="text-sm font-medium text-clay-muted">
+        Over 200 five-star reviews on Google ·
+        <a href="#contact" class="font-bold text-clay-accent hover:underline">Be the next happy customer →</a>
+      </p>
+    </div>
+
+  </div>
+</section>

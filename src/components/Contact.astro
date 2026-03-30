@@ -1,0 +1,176 @@
+---
+const inquiryTypes = [
+  "Custom Cake",
+  "Pastries / Breads",
+  "Event Catering",
+  "Cookie / Cupcake Box",
+  "Other",
+];
+
+const contactDetails = [
+  { emoji: "📍", label: "Find us",  value: "12 Maple Lane, Maplewood" },
+  { emoji: "📞", label: "Call us",  value: "+1 (555) 012-3456"        },
+  { emoji: "✉️",  label: "Email us", value: "hello@oliviasbakery.com"  },
+  { emoji: "🕐", label: "Hours",    value: "Tue–Sat, 8 am – 6 pm"     },
+];
+---
+
+<section id="contact" class="px-4 py-20 sm:px-6 sm:py-24">
+  <div class="mx-auto max-w-6xl">
+
+    <!-- Section header -->
+    <div class="mb-12 flex flex-col items-center text-center">
+      <span
+        class="mb-3 inline-block rounded-full bg-green-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-green-600"
+      >
+        Get In Touch
+      </span>
+      <h2
+        class="max-w-xl text-3xl font-black text-clay-text sm:text-4xl md:text-5xl"
+        style="font-family: 'Nunito', sans-serif;"
+      >
+        Let's Create Something
+        <span class="clay-gradient-text"> Delicious</span>
+      </h2>
+      <p class="mt-4 max-w-md text-base font-medium text-clay-muted">
+        Fill in the form and Olivia will get back to you within 24 hours to discuss your order.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-5 lg:gap-10">
+
+      <!-- Form (3/5) -->
+      <div
+        class="relative overflow-hidden rounded-6xl bg-white/65 p-8 backdrop-blur-xl lg:col-span-3 sm:p-10"
+        style="box-shadow: var(--shadow-clay-card);"
+      >
+        <form class="flex flex-col gap-5" novalidate>
+
+          <!-- Name + Email row -->
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div class="flex flex-col gap-2">
+              <label for="name" class="text-sm font-bold text-clay-text">Your name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Jane Smith"
+                autocomplete="name"
+                class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none placeholder:text-clay-muted/60 transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
+                style="box-shadow: var(--shadow-clay-pressed);"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="email" class="text-sm font-bold text-clay-text">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="jane@example.com"
+                autocomplete="email"
+                class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none placeholder:text-clay-muted/60 transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
+                style="box-shadow: var(--shadow-clay-pressed);"
+              />
+            </div>
+          </div>
+
+          <!-- Inquiry type -->
+          <div class="flex flex-col gap-2">
+            <label for="inquiry" class="text-sm font-bold text-clay-text">What are you ordering?</label>
+            <select
+              id="inquiry"
+              name="inquiry"
+              class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20 appearance-none cursor-pointer"
+              style="box-shadow: var(--shadow-clay-pressed);"
+            >
+              <option value="" disabled selected>Select an option…</option>
+              {inquiryTypes.map((t) => (
+                <option value={t}>{t}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Event date -->
+          <div class="flex flex-col gap-2">
+            <label for="date" class="text-sm font-bold text-clay-text">Event / delivery date <span class="text-clay-muted font-medium">(optional)</span></label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
+              style="box-shadow: var(--shadow-clay-pressed);"
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-sm font-bold text-clay-text">Tell me about your dream cake</label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              placeholder="Describe your vision, number of guests, flavour preferences, any inspiration photos…"
+              class="w-full resize-none rounded-4xl bg-[#EFEBF5] px-5 py-4 text-base font-medium leading-relaxed text-clay-text outline-none placeholder:text-clay-muted/60 transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
+              style="box-shadow: var(--shadow-clay-pressed);"
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="mt-1 inline-flex h-14 w-full items-center justify-center rounded-3xl bg-linear-to-br from-[#A78BFA] to-[#7C3AED] text-base font-bold tracking-wide text-white transition-all duration-200 hover:-translate-y-1 active:scale-[0.92]"
+            style="box-shadow: var(--shadow-clay-button);"
+          >
+            Send My Enquiry 🎂
+          </button>
+
+          <p class="text-center text-xs font-medium text-clay-muted">
+            We respond within 24 hours. No spam, ever.
+          </p>
+        </form>
+      </div>
+
+      <!-- Contact info sidebar (2/5) -->
+      <div class="flex flex-col gap-5 lg:col-span-2">
+
+        <!-- Info cards -->
+        {contactDetails.map((c) => (
+          <div
+            class="flex items-center gap-4 rounded-4xl bg-white/65 p-5 backdrop-blur-xl"
+            style="box-shadow: var(--shadow-clay-card);"
+          >
+            <div
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-violet-400 to-violet-600 text-lg"
+              style="box-shadow: var(--shadow-clay-button);"
+              aria-hidden="true"
+            >
+              {c.emoji}
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-clay-muted">{c.label}</p>
+              <p class="text-sm font-bold text-clay-text">{c.value}</p>
+            </div>
+          </div>
+        ))}
+
+        <!-- Mood card -->
+        <div
+          class="mt-2 overflow-hidden rounded-4xl bg-linear-to-br from-violet-500 to-pink-500 p-7 text-white"
+          style="box-shadow: var(--shadow-clay-button);"
+        >
+          <p
+            class="text-2xl font-black leading-tight"
+            style="font-family: 'Nunito', sans-serif;"
+          >
+            Minimum notice: 5 days for cakes, 14 days for events.
+          </p>
+          <p class="mt-3 text-sm font-medium opacity-90">
+            Popular dates book up fast — especially May through August. Reach out early for weddings and large events.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

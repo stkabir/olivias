@@ -1,0 +1,50 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Las Olivias — Tradición y sabor del pueblo · Xalapa",
+  description = "Antojitos, platillos y especialidades tradicionales en Xalapa, Veracruz. Pedidos por WhatsApp al 228 255 7773. Av 20 de Noviembre #323.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Google Fonts: Nunito (headings) + DM Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+
+  <body class="bg-clay-canvas text-clay-text font-dmsans antialiased overflow-x-hidden">
+    <!-- Floating ambient blobs — pink/magenta to match Las Olivias brand -->
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-[15%] -left-[10%] h-[70vh] w-[70vh] rounded-full bg-[#DB2777]/10 blur-3xl animate-clay-float"></div>
+      <div class="absolute -right-[10%] top-[15%]  h-[60vh] w-[60vh] rounded-full bg-[#9333EA]/10 blur-3xl animate-clay-float-delayed animation-delay-2000"></div>
+      <div class="absolute bottom-[5%]  left-[20%]  h-[50vh] w-[50vh] rounded-full bg-[#F59E0B]/10 blur-3xl animate-clay-float-slow  animation-delay-4000"></div>
+      <div class="absolute -bottom-[10%] -right-[5%] h-[55vh] w-[55vh] rounded-full bg-[#EC4899]/8  blur-3xl animate-clay-float   animation-delay-6000"></div>
+    </div>
+
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import "../styles/global.css";
+</style>
