@@ -33,12 +33,12 @@ const {
   </head>
 
   <body class="bg-clay-canvas text-clay-text font-dmsans antialiased overflow-x-hidden">
-    <!-- Floating ambient blobs — pink/magenta to match Las Olivias brand -->
+    <!-- Blobs: cocina caliente — chile rojo, ámbar maíz, naranja brasa, rosa marca -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
-      <div class="absolute -top-[15%] -left-[10%] h-[70vh] w-[70vh] rounded-full bg-[#DB2777]/10 blur-3xl animate-clay-float"></div>
-      <div class="absolute -right-[10%] top-[15%]  h-[60vh] w-[60vh] rounded-full bg-[#9333EA]/10 blur-3xl animate-clay-float-delayed animation-delay-2000"></div>
-      <div class="absolute bottom-[5%]  left-[20%]  h-[50vh] w-[50vh] rounded-full bg-[#F59E0B]/10 blur-3xl animate-clay-float-slow  animation-delay-4000"></div>
-      <div class="absolute -bottom-[10%] -right-[5%] h-[55vh] w-[55vh] rounded-full bg-[#EC4899]/8  blur-3xl animate-clay-float   animation-delay-6000"></div>
+      <div class="absolute -top-[15%] -left-[10%]  h-[70vh] w-[70vh] rounded-full bg-clay-accent-alt/12 blur-3xl animate-clay-float"></div>
+      <div class="absolute -right-[10%] top-[10%]   h-[65vh] w-[65vh] rounded-full bg-clay-tertiary/14  blur-3xl animate-clay-float-delayed animation-delay-2000"></div>
+      <div class="absolute bottom-[10%] left-[15%]  h-[50vh] w-[50vh] rounded-full bg-[#EA580C]/10 blur-3xl animate-clay-float-slow  animation-delay-4000"></div>
+      <div class="absolute -bottom-[5%] -right-[5%] h-[55vh] w-[55vh] rounded-full bg-clay-accent/8  blur-3xl animate-clay-float   animation-delay-6000"></div>
     </div>
 
     <slot />

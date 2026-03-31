@@ -2,19 +2,19 @@
 
 /* ============================================================
    LAS OLIVIAS — Clay Design System Tokens
-   Primary brand: Hot Pink (#DB2777), secondary: Violet (#7C3AED)
+   Paleta "cocina caliente": crema/pergamino + chile rojo + ámbar
    ============================================================ */
 @theme {
   /* --- Colors --- */
-  --color-clay-canvas:      #F4F1FA;
-  --color-clay-text:        #332F3A;
-  --color-clay-muted:       #635F69;
-  --color-clay-accent:      #DB2777;   /* Hot pink — Las Olivias brand */
-  --color-clay-accent-alt:  #7C3AED;  /* Violet — secondary */
-  --color-clay-tertiary:    #F59E0B;  /* Amber — warmth */
+  --color-clay-canvas:      #FEF6EC;  /* Crema pergamino cálido — antes era lavanda frío */
+  --color-clay-text:        #2D1A0E;  /* Café oscuro en lugar de carbón frío */
+  --color-clay-muted:       #7C5C3E;  /* Café medio — legible y cálido */
+  --color-clay-accent:      #DB2777;  /* Hot pink — Las Olivias brand */
+  --color-clay-accent-alt:  #C2410C;  /* Rojo chile — reemplaza violeta frío */
+  --color-clay-tertiary:    #F59E0B;  /* Ámbar maíz */
   --color-clay-success:     #10B981;
   --color-clay-wa:          #25D366;  /* WhatsApp green */
-  --color-clay-card:        rgba(255,255,255,0.72);
+  --color-clay-card:        rgba(255,248,235,0.8); /* Crema cálida semitransparente */
 
   /* --- Border Radii --- */
   --radius-4xl: 2rem;
@@ -22,23 +22,23 @@
   --radius-6xl: 3rem;
   --radius-7xl: 3.75rem;
 
-  /* --- Shadows --- */
+  /* --- Shadows (tonos caramelo/arena en vez de lavanda/morado) --- */
   --shadow-clay-nav:
-    8px 8px 20px rgba(160,150,180,0.15),
-    -6px -6px 16px rgba(255,255,255,0.9),
-    inset 3px 3px 6px rgba(219,39,119,0.02),
+    8px 8px 20px rgba(180,120,60,0.12),
+    -6px -6px 16px rgba(255,255,255,0.95),
+    inset 3px 3px 6px rgba(194,65,12,0.02),
     inset -3px -3px 6px rgba(255,255,255,0.9);
 
   --shadow-clay-card:
-    16px 16px 32px rgba(160,150,180,0.2),
-    -10px -10px 24px rgba(255,255,255,0.9),
-    inset 6px 6px 12px rgba(219,39,119,0.03),
+    16px 16px 32px rgba(180,120,60,0.16),
+    -10px -10px 24px rgba(255,255,255,0.95),
+    inset 6px 6px 12px rgba(194,65,12,0.03),
     inset -6px -6px 12px rgba(255,255,255,1);
 
   --shadow-clay-card-hover:
-    22px 22px 44px rgba(160,150,180,0.28),
+    22px 22px 44px rgba(180,120,60,0.24),
     -12px -12px 28px rgba(255,255,255,1),
-    inset 6px 6px 12px rgba(219,39,119,0.06),
+    inset 6px 6px 12px rgba(194,65,12,0.05),
     inset -6px -6px 12px rgba(255,255,255,1);
 
   --shadow-clay-button:
@@ -66,14 +66,14 @@
     inset -4px -4px 8px rgba(0,0,0,0.1);
 
   --shadow-clay-pressed:
-    inset 10px 10px 20px #d9d4e3,
-    inset -10px -10px 20px #ffffff;
+    inset 10px 10px 20px #e8d5b8,
+    inset -10px -10px 20px #fffdf7;
 
   --shadow-clay-deep:
-    30px 30px 60px #cdc6d9,
-    -30px -30px 60px #ffffff,
-    inset 10px 10px 20px rgba(219,39,119,0.04),
-    inset -10px -10px 20px rgba(255,255,255,0.8);
+    30px 30px 60px rgba(180,120,60,0.2),
+    -30px -30px 60px rgba(255,255,255,0.9),
+    inset 10px 10px 20px rgba(194,65,12,0.04),
+    inset -10px -10px 20px rgba(255,255,255,0.85);
 
   /* --- Fonts --- */
   --font-nunito: "Nunito", sans-serif;
@@ -119,8 +119,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #F4F1FA;
-  color: #332F3A;
+  background-color: #FEF6EC;
+  color: #2D1A0E;
   font-family: "DM Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -134,9 +134,9 @@ body {
 .animation-delay-4000 { animation-delay: 4s; }
 .animation-delay-6000 { animation-delay: 6s; }
 
-/* Gradient text — Nunito only, text-5xl+ */
+/* Gradient text — chile rojo → brand pink */
 .clay-gradient-text {
-  background: linear-gradient(135deg, #DB2777 10%, #9333EA 80%);
+  background: linear-gradient(135deg, #C2410C 10%, #DB2777 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

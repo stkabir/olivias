@@ -1,5 +1,4 @@
 ---
-// ── Full menu data from Las Olivias ──────────────────────────
 const WA_BASE = "https://wa.me/522282557773?text=";
 
 function pedirLink(item: string) {
@@ -7,34 +6,122 @@ function pedirLink(item: string) {
 }
 
 const antojitos = [
-  { name: "Picada Chica",              desc: "De frijoles, salsa roja o verde",                                       price: 12  },
-  { name: "Picada Grande Sencilla",    desc: "De frijoles, salsa roja o verde",                                       price: 42  },
-  { name: "Picada Grande Preparada",   desc: "Con milanesa, pollo, papa o queso",                                     price: 50  },
-  { name: "Empanada Chica",            desc: "Queso, pollo, papa o picadillo",                                        price: 12  },
-  { name: "Empanada Gigante",          desc: "Queso, pollo, papa o picadillo",                                        price: 42  },
-  { name: "Tostada",                   desc: null,                                                                     price: 20  },
-  { name: "Dorado de Papa",            desc: null,                                                                     price: 12  },
-  { name: "Tapaditas de Frijol",       desc: null,                                                                     price: 12  },
-  { name: "Taco de Guisado",           desc: "Guiso del día en doble tortilla",                                       price: 25  },
+  {
+    name: "Picada Chica",
+    desc: "Masa suave y esponjosa con frijoles cremosos, bañada en salsa roja o verde",
+    price: 12,
+  },
+  {
+    name: "Picada Grande Sencilla",
+    desc: "Masa generosa y esponjosa, untada de frijoles y salsa de la casa",
+    price: 42,
+  },
+  {
+    name: "Picada Grande Preparada",
+    desc: "La sencilla más tu relleno favorito: milanesa, pollo, papa o queso — la estrella del local",
+    price: 50,
+  },
+  {
+    name: "Empanada Chica",
+    desc: "Masa crujiente recién hecha, rellena de queso, pollo, papa o picadillo",
+    price: 12,
+  },
+  {
+    name: "Empanada Gigante",
+    desc: "Grande y generosa, crocante por fuera y suave por dentro — para los que tienen hambre de verdad",
+    price: 42,
+  },
+  {
+    name: "Tostada",
+    desc: "Tortilla dorada y crujiente con frijoles untados y salsa de la casa",
+    price: 20,
+  },
+  {
+    name: "Dorado de Papa",
+    desc: "Crocante y dorado por fuera, suave y bien sazonado por dentro",
+    price: 12,
+  },
+  {
+    name: "Tapaditas de Frijol",
+    desc: "Pequeñas y adictivas, con frijol negro cremoso recién hecho",
+    price: 12,
+  },
+  {
+    name: "Taco de Guisado",
+    desc: "Guiso del día, generoso y calientito envuelto en doble tortilla de maíz",
+    price: 25,
+  },
 ];
 
 const platillos = [
-  { name: "Huevos al Gusto",           desc: "Jamón, longaniza, mexicana, rancheros, divorciados o omelet con frijoles", price: 60 },
-  { name: "Molletes",                  desc: "Manchego o queso de hebra",                                              price: 66 },
-  { name: "Chilaquiles",               desc: "Verdes o rojos con pollo o huevo",                                       price: 66 },
-  { name: "Enfrijoladas",              desc: "Pollo, queso, papa o huevo",                                             price: 66 },
-  { name: "Enmoladas",                 desc: "Pollo, queso, papa o huevo",                                             price: 66 },
-  { name: "Enchiladas",                desc: "Verdes o rojas con pollo, papa, queso o huevo",                          price: 66 },
-  { name: "Enchiladas Suizas",         desc: "Verdes o rojas con pollo, papa, queso o huevo",                          price: 87 },
-  { name: "Milanesa",                  desc: "Con ensalada, frijoles y arroz",                                         price: 82 },
-  { name: "Pechuga a la Plancha",      desc: "Con ensalada, frijoles y arroz",                                         price: 82 },
+  {
+    name: "Huevos al Gusto",
+    desc: "Recién hechos a tu estilo — jamón, longaniza, mexicana, rancheros, divorciados u omelet — con frijoles",
+    price: 60,
+  },
+  {
+    name: "Molletes",
+    desc: "Telera dorada con frijoles cremosos y queso gratinado que se derrite: crujiente por fuera, fundente por dentro",
+    price: 66,
+  },
+  {
+    name: "Chilaquiles",
+    desc: "Totopos crujientes bañados en salsa verde o roja, con pollo tierno, crema espesa y queso",
+    price: 66,
+  },
+  {
+    name: "Enfrijoladas",
+    desc: "Tortillas suaves sumergidas en salsa de frijol negro, rellenas de pollo, queso, papa o huevo",
+    price: 66,
+  },
+  {
+    name: "Enmoladas",
+    desc: "Bañadas en mole negro aromático y profundo — sabor tradicional veracruzano a cada bocado",
+    price: 66,
+  },
+  {
+    name: "Enchiladas",
+    desc: "Tortillas rellenas y bañadas en salsa vibrante verde o roja, con crema y queso encima",
+    price: 66,
+  },
+  {
+    name: "Enchiladas Suizas",
+    desc: "Las mismas enchiladas, pero gratinadas con queso fundido y crema — irresistibles",
+    price: 87,
+  },
+  {
+    name: "Milanesa",
+    desc: "Empanizada, dorada y crujiente, acompañada de ensalada fresca, frijoles y arroz",
+    price: 82,
+  },
+  {
+    name: "Pechuga a la Plancha",
+    desc: "Pechuga jugosa y bien sazonada, con ensalada fresca, frijoles y arroz",
+    price: 82,
+  },
 ];
 
 const especialidades = [
-  { name: "Pozole Chico",              desc: null,                                                                     price: 72 },
-  { name: "Pozole Grande",             desc: null,                                                                     price: 82 },
-  { name: "Costilla de Cerdo",         desc: "Con arroz y frijoles",                                                  price: 82 },
-  { name: "Pollo con Mole",            desc: null,                                                                     price: 77 },
+  {
+    name: "Pozole Chico",
+    desc: "Caldo reconfortante de maíz y carne — solo los sábados, ¡no te lo pierdas!",
+    price: 72,
+  },
+  {
+    name: "Pozole Grande",
+    desc: "Porción generosa del pozole más querido de Xalapa, con tostadas y guarniciones",
+    price: 82,
+  },
+  {
+    name: "Costilla de Cerdo",
+    desc: "Suave y jugosa, bañada en salsa, acompañada de arroz y frijoles",
+    price: 82,
+  },
+  {
+    name: "Pollo con Mole",
+    desc: "Pollo tierno bañado en mole negro profundo y aromático — sabor que abraza el alma",
+    price: 77,
+  },
 ];
 ---
 
@@ -52,7 +139,7 @@ const especialidades = [
       >
         <span class="clay-gradient-text">Hecho con amor,</span><br />servido con sabor
       </h2>
-      <p class="mt-3 max-w-sm text-sm font-medium text-clay-muted">
+      <p class="mt-3 max-w-sm text-base font-medium text-clay-muted">
         Toca cualquier platillo para pedirlo directo por WhatsApp 💬
       </p>
     </div>
@@ -77,21 +164,19 @@ const especialidades = [
             href={pedirLink(item.name)}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center justify-between gap-3 rounded-4xl bg-white/65 px-5 py-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
+            class="group flex items-start justify-between gap-3 rounded-4xl bg-amber-50/85 px-5 py-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
             style="box-shadow: var(--shadow-clay-card);"
           >
             <div class="flex flex-col gap-0.5 min-w-0">
               <span
-                class="text-sm font-extrabold text-clay-text group-hover:text-clay-accent transition-colors"
+                class="text-base font-extrabold text-clay-text transition-colors group-hover:text-amber-700"
                 style="font-family: 'Nunito', sans-serif;"
               >{item.name}</span>
-              {item.desc && (
-                <span class="text-xs font-medium text-clay-muted leading-snug">{item.desc}</span>
-              )}
+              <span class="text-sm font-medium leading-snug text-clay-muted">{item.desc}</span>
             </div>
             <span
-              class="shrink-0 rounded-2xl bg-clay-accent/10 px-3 py-1.5 text-sm font-black text-clay-accent"
-              style="font-family: 'Nunito', sans-serif;"
+              class="mt-0.5 shrink-0 rounded-full bg-linear-to-br from-amber-400 to-orange-500 px-3 py-1.5 text-sm font-black text-white"
+              style="font-family: 'Nunito', sans-serif; box-shadow: 4px 4px 8px rgba(194,65,12,0.25);"
             >
               ${item.price}
             </span>
@@ -116,7 +201,7 @@ const especialidades = [
     <div class="mb-10">
       <div class="mb-5 flex items-center gap-3">
         <span
-          class="flex h-10 w-10 items-center justify-center rounded-2xl bg-linear-to-br from-violet-400 to-violet-600 text-xl"
+          class="flex h-10 w-10 items-center justify-center rounded-2xl bg-linear-to-br from-clay-accent to-pink-700 text-xl"
           style="box-shadow: var(--shadow-clay-button);"
           aria-hidden="true"
         >🍳</span>
@@ -132,21 +217,19 @@ const especialidades = [
             href={pedirLink(item.name)}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center justify-between gap-3 rounded-4xl bg-white/65 px-5 py-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
+            class="group flex items-start justify-between gap-3 rounded-4xl bg-rose-50/85 px-5 py-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
             style="box-shadow: var(--shadow-clay-card);"
           >
             <div class="flex flex-col gap-0.5 min-w-0">
               <span
-                class="text-sm font-extrabold text-clay-text group-hover:text-clay-accent-alt transition-colors"
+                class="text-base font-extrabold text-clay-text transition-colors group-hover:text-clay-accent"
                 style="font-family: 'Nunito', sans-serif;"
               >{item.name}</span>
-              {item.desc && (
-                <span class="text-xs font-medium text-clay-muted leading-snug">{item.desc}</span>
-              )}
+              <span class="text-sm font-medium leading-snug text-clay-muted">{item.desc}</span>
             </div>
             <span
-              class="shrink-0 rounded-2xl bg-clay-accent-alt/10 px-3 py-1.5 text-sm font-black text-clay-accent-alt"
-              style="font-family: 'Nunito', sans-serif;"
+              class="mt-0.5 shrink-0 rounded-full bg-linear-to-br from-rose-500 to-pink-600 px-3 py-1.5 text-sm font-black text-white"
+              style="font-family: 'Nunito', sans-serif; box-shadow: 4px 4px 8px rgba(219,39,119,0.25);"
             >
               ${item.price}
             </span>
@@ -159,7 +242,7 @@ const especialidades = [
     <div>
       <div class="mb-5 flex flex-wrap items-center gap-3">
         <span
-          class="flex h-10 w-10 items-center justify-center rounded-2xl bg-linear-to-br from-pink-400 to-pink-600 text-xl"
+          class="flex h-10 w-10 items-center justify-center rounded-2xl bg-linear-to-br from-orange-500 to-red-600 text-xl"
           style="box-shadow: var(--shadow-clay-button);"
           aria-hidden="true"
         >🫕</span>
@@ -168,7 +251,7 @@ const especialidades = [
           style="font-family: 'Nunito', sans-serif;"
         >Especialidades</h3>
         <span
-          class="inline-flex items-center gap-1 rounded-full bg-clay-tertiary/15 px-3 py-1 text-xs font-bold text-clay-tertiary"
+          class="inline-flex items-center gap-1 rounded-full bg-orange-100 px-3 py-1 text-xs font-bold text-orange-600"
         >
           📅 Solo Sábados
         </span>
@@ -180,21 +263,19 @@ const especialidades = [
             href={pedirLink(item.name)}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center justify-between gap-3 rounded-4xl bg-white/65 px-5 py-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
+            class="group flex items-start justify-between gap-3 rounded-4xl bg-orange-50/85 px-5 py-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
             style="box-shadow: var(--shadow-clay-card);"
           >
             <div class="flex flex-col gap-0.5 min-w-0">
               <span
-                class="text-sm font-extrabold text-clay-text group-hover:text-clay-accent transition-colors"
+                class="text-base font-extrabold text-clay-text transition-colors group-hover:text-orange-700"
                 style="font-family: 'Nunito', sans-serif;"
               >{item.name}</span>
-              {item.desc && (
-                <span class="text-xs font-medium text-clay-muted leading-snug">{item.desc}</span>
-              )}
+              <span class="text-sm font-medium leading-snug text-clay-muted">{item.desc}</span>
             </div>
             <span
-              class="shrink-0 rounded-2xl bg-clay-tertiary/15 px-3 py-1.5 text-sm font-black text-clay-tertiary"
-              style="font-family: 'Nunito', sans-serif;"
+              class="mt-0.5 shrink-0 rounded-full bg-linear-to-br from-orange-500 to-red-600 px-3 py-1.5 text-sm font-black text-white"
+              style="font-family: 'Nunito', sans-serif; box-shadow: 4px 4px 8px rgba(194,65,12,0.25);"
             >
               ${item.price}
             </span>
