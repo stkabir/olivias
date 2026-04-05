@@ -1,175 +1,168 @@
 ---
-const inquiryTypes = [
-  "Custom Cake",
-  "Pastries / Breads",
-  "Event Catering",
-  "Cookie / Cupcake Box",
-  "Other",
-];
+// Info / location / contact section — replaces the bakery "About"
+const WA_LINK        = "https://wa.me/522282557773?text=Hola%20Las%20Olivias%2C%20quisiera%20hacer%20un%20pedido%20%F0%9F%8C%AE";
+const WA_EVENTO_LINK = "https://wa.me/522282557773?text=Hola%20Las%20Olivias%2C%20quisiera%20cotizar%20un%20evento%20%F0%9F%8E%89";
 
-const contactDetails = [
-  { emoji: "📍", label: "Find us",  value: "12 Maple Lane, Maplewood" },
-  { emoji: "📞", label: "Call us",  value: "+1 (555) 012-3456"        },
-  { emoji: "✉️",  label: "Email us", value: "hello@oliviasbakery.com"  },
-  { emoji: "🕐", label: "Hours",    value: "Tue–Sat, 8 am – 6 pm"     },
+const infoCards = [
+  {
+    emoji: "📍",
+    label: "Dirección",
+    value: "Av 20 de Noviembre #323",
+    sub: "Xalapa, Veracruz",
+    color: "from-pink-400 to-pink-600",
+    link: "https://maps.google.com/?q=Av+20+de+Noviembre+323+Xalapa+Veracruz",
+    linkLabel: "Ver en Maps →",
+  },
+  {
+    emoji: "📞",
+    label: "Teléfono / WhatsApp",
+    value: "228 255 7773",
+    sub: "Llama o manda mensaje",
+    color: "from-green-400 to-emerald-600",
+    link: WA_LINK,
+    linkLabel: "Abrir WhatsApp →",
+  },
+  {
+    emoji: "🕐",
+    label: "Horario",
+    value: "Lunes a Sábado",
+    sub: "8:00 am – 6:00 pm",
+    color: "from-amber-400 to-orange-500",
+    link: null,
+    linkLabel: null,
+  },
+  {
+    emoji: "📅",
+    label: "Especialidades",
+    value: "Solo Sábados",
+    sub: "Pozole, costilla y pollo con mole",
+    color: "from-red-400 to-red-600",
+    link: null,
+    linkLabel: null,
+  },
 ];
 ---
 
 <section id="contact" class="px-4 py-20 sm:px-6 sm:py-24">
-  <div class="mx-auto max-w-6xl">
+  <div class="mx-auto max-w-5xl">
 
     <!-- Section header -->
     <div class="mb-12 flex flex-col items-center text-center">
       <span
-        class="mb-3 inline-block rounded-full bg-green-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-green-600"
-      >
-        Get In Touch
-      </span>
+        class="mb-3 inline-block rounded-full bg-amber-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-600"
+      >Encuéntranos</span>
       <h2
-        class="max-w-xl text-3xl font-black text-clay-text sm:text-4xl md:text-5xl"
+        class="text-3xl font-black text-clay-text sm:text-4xl md:text-5xl"
         style="font-family: 'Nunito', sans-serif;"
       >
-        Let's Create Something
-        <span class="clay-gradient-text"> Delicious</span>
+        Estamos cerca,<br />
+        <span class="clay-gradient-text">a un mensaje de distancia</span>
       </h2>
-      <p class="mt-4 max-w-md text-base font-medium text-clay-muted">
-        Fill in the form and Olivia will get back to you within 24 hours to discuss your order.
-      </p>
     </div>
 
-    <div class="grid gap-8 lg:grid-cols-5 lg:gap-10">
-
-      <!-- Form (3/5) -->
-      <div
-        class="relative overflow-hidden rounded-6xl bg-white/65 p-8 backdrop-blur-xl lg:col-span-3 sm:p-10"
-        style="box-shadow: var(--shadow-clay-card);"
-      >
-        <form class="flex flex-col gap-5" novalidate>
-
-          <!-- Name + Email row -->
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div class="flex flex-col gap-2">
-              <label for="name" class="text-sm font-bold text-clay-text">Your name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Jane Smith"
-                autocomplete="name"
-                class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none placeholder:text-clay-muted/60 transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
-                style="box-shadow: var(--shadow-clay-pressed);"
-              />
-            </div>
-            <div class="flex flex-col gap-2">
-              <label for="email" class="text-sm font-bold text-clay-text">Email address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="jane@example.com"
-                autocomplete="email"
-                class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none placeholder:text-clay-muted/60 transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
-                style="box-shadow: var(--shadow-clay-pressed);"
-              />
-            </div>
-          </div>
-
-          <!-- Inquiry type -->
-          <div class="flex flex-col gap-2">
-            <label for="inquiry" class="text-sm font-bold text-clay-text">What are you ordering?</label>
-            <select
-              id="inquiry"
-              name="inquiry"
-              class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20 appearance-none cursor-pointer"
-              style="box-shadow: var(--shadow-clay-pressed);"
-            >
-              <option value="" disabled selected>Select an option…</option>
-              {inquiryTypes.map((t) => (
-                <option value={t}>{t}</option>
-              ))}
-            </select>
-          </div>
-
-          <!-- Event date -->
-          <div class="flex flex-col gap-2">
-            <label for="date" class="text-sm font-bold text-clay-text">Event / delivery date <span class="text-clay-muted font-medium">(optional)</span></label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              class="h-14 w-full rounded-3xl bg-[#EFEBF5] px-5 text-base font-medium text-clay-text outline-none transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
-              style="box-shadow: var(--shadow-clay-pressed);"
-            />
-          </div>
-
-          <!-- Message -->
-          <div class="flex flex-col gap-2">
-            <label for="message" class="text-sm font-bold text-clay-text">Tell me about your dream cake</label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              placeholder="Describe your vision, number of guests, flavour preferences, any inspiration photos…"
-              class="w-full resize-none rounded-4xl bg-[#EFEBF5] px-5 py-4 text-base font-medium leading-relaxed text-clay-text outline-none placeholder:text-clay-muted/60 transition-all duration-200 focus:bg-white focus:ring-4 focus:ring-clay-accent/20"
-              style="box-shadow: var(--shadow-clay-pressed);"
-            ></textarea>
-          </div>
-
-          <!-- Submit -->
-          <button
-            type="submit"
-            class="mt-1 inline-flex h-14 w-full items-center justify-center rounded-3xl bg-linear-to-br from-[#A78BFA] to-[#7C3AED] text-base font-bold tracking-wide text-white transition-all duration-200 hover:-translate-y-1 active:scale-[0.92]"
-            style="box-shadow: var(--shadow-clay-button);"
-          >
-            Send My Enquiry 🎂
-          </button>
-
-          <p class="text-center text-xs font-medium text-clay-muted">
-            We respond within 24 hours. No spam, ever.
-          </p>
-        </form>
-      </div>
-
-      <!-- Contact info sidebar (2/5) -->
-      <div class="flex flex-col gap-5 lg:col-span-2">
-
-        <!-- Info cards -->
-        {contactDetails.map((c) => (
-          <div
-            class="flex items-center gap-4 rounded-4xl bg-white/65 p-5 backdrop-blur-xl"
-            style="box-shadow: var(--shadow-clay-card);"
-          >
-            <div
-              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-violet-400 to-violet-600 text-lg"
-              style="box-shadow: var(--shadow-clay-button);"
-              aria-hidden="true"
-            >
-              {c.emoji}
-            </div>
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-clay-muted">{c.label}</p>
-              <p class="text-sm font-bold text-clay-text">{c.value}</p>
-            </div>
-          </div>
-        ))}
-
-        <!-- Mood card -->
+    <!-- Info cards grid -->
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {infoCards.map((c) => (
         <div
-          class="mt-2 overflow-hidden rounded-4xl bg-linear-to-br from-violet-500 to-pink-500 p-7 text-white"
-          style="box-shadow: var(--shadow-clay-button);"
+          class="flex flex-col gap-4 rounded-4xl bg-white/65 p-6 backdrop-blur-md"
+          style="box-shadow: var(--shadow-clay-card);"
         >
-          <p
-            class="text-2xl font-black leading-tight"
-            style="font-family: 'Nunito', sans-serif;"
-          >
-            Minimum notice: 5 days for cakes, 14 days for events.
-          </p>
-          <p class="mt-3 text-sm font-medium opacity-90">
-            Popular dates book up fast — especially May through August. Reach out early for weddings and large events.
-          </p>
+          <div
+            class={`flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br ${c.color} text-2xl`}
+            style="box-shadow: var(--shadow-clay-button);"
+            aria-hidden="true"
+          >{c.emoji}</div>
+          <div class="flex flex-col gap-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-clay-muted">{c.label}</span>
+            <span
+              class="text-base font-extrabold text-clay-text"
+              style="font-family: 'Nunito', sans-serif;"
+            >{c.value}</span>
+            <span class="text-sm font-medium text-clay-muted">{c.sub}</span>
+          </div>
+          {c.link && (
+            <a
+              href={c.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto text-sm font-bold text-clay-accent transition-colors hover:text-clay-accent-alt"
+            >
+              {c.linkLabel}
+            </a>
+          )}
         </div>
+      ))}
+    </div>
 
+    <!-- Two CTA banners — pedir + cotizar evento -->
+    <div class="mt-8 grid gap-5 lg:grid-cols-2">
+
+      <!-- Banner 1: Pedir ahora -->
+      <div
+        class="relative overflow-hidden rounded-6xl p-7 text-white sm:p-8"
+        style="background: linear-gradient(135deg, #DB2777, #C2410C); box-shadow: var(--shadow-clay-deep);"
+      >
+        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" aria-hidden="true"></div>
+        <div class="absolute -bottom-8 left-8 h-28 w-28 rounded-full bg-white/10 blur-2xl" aria-hidden="true"></div>
+        <div class="relative z-10 flex h-full flex-col gap-4">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl" aria-hidden="true">🌮</span>
+            <p
+              class="text-2xl font-black"
+              style="font-family: 'Nunito', sans-serif;"
+            >¿Listo para pedir?</p>
+          </div>
+          <p class="text-sm font-medium leading-relaxed opacity-90">
+            Mándanos un WhatsApp y te atendemos al momento.
+          </p>
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-auto inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-3xl bg-white px-6 text-sm font-black tracking-wide text-[#128C7E] transition-all duration-200 hover:-translate-y-1 active:scale-[0.92]"
+            style="box-shadow: 8px 8px 20px rgba(0,0,0,0.15), -4px -4px 12px rgba(255,255,255,0.3);"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
       </div>
+
+      <!-- Banner 2: Cotizar evento -->
+      <div
+        class="relative overflow-hidden rounded-6xl p-7 text-white sm:p-8"
+        style="background: linear-gradient(135deg, #F59E0B, #DB2777); box-shadow: var(--shadow-clay-deep);"
+      >
+        <div class="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" aria-hidden="true"></div>
+        <div class="absolute -bottom-8 right-8 h-28 w-28 rounded-full bg-white/10 blur-2xl" aria-hidden="true"></div>
+        <div class="relative z-10 flex h-full flex-col gap-4">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl" aria-hidden="true">🎉</span>
+            <p
+              class="text-2xl font-black"
+              style="font-family: 'Nunito', sans-serif;"
+            >¿Tienes un evento?</p>
+          </div>
+          <p class="text-sm font-medium leading-relaxed opacity-90">
+            Cotizamos catering para cumpleaños, reuniones, eventos corporativos y más. Escríbenos y armamos tu menú.
+          </p>
+          <a
+            href={WA_EVENTO_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-auto inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-3xl bg-white px-6 text-sm font-black tracking-wide text-[#B45309] transition-all duration-200 hover:-translate-y-1 active:scale-[0.92]"
+            style="box-shadow: 8px 8px 20px rgba(0,0,0,0.15), -4px -4px 12px rgba(255,255,255,0.3);"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Cotizar mi evento
+          </a>
+        </div>
+      </div>
+
     </div>
 
   </div>

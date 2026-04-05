@@ -80,38 +80,59 @@ const WA_LINK = "https://wa.me/522282557773?text=Hola%20Las%20Olivias%2C%20quisi
 
     </div>
 
-    <!-- Hero visual — quick-peek menu categories -->
+    <!-- Hero visual — mosaico fotográfico de platillos -->
     <div class="relative mx-auto mt-14 max-w-2xl">
       <div
-        class="relative overflow-hidden rounded-6xl bg-amber-50/75 p-7 backdrop-blur-xl sm:p-9"
+        class="relative overflow-hidden rounded-6xl bg-white/50 p-4 backdrop-blur-xl sm:p-5"
         style="box-shadow: var(--shadow-clay-deep);"
       >
         <p
-          class="mb-5 text-center text-sm font-black uppercase tracking-widest text-clay-muted"
+          class="mb-4 text-center text-sm font-black uppercase tracking-widest text-clay-muted"
           style="font-family: 'Nunito', sans-serif;"
         >
           ¿Qué se te antoja hoy?
         </p>
-        <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div class="grid grid-cols-2 gap-3">
           {[
-            { emoji: "🫓", label: "Picadas",      color: "from-amber-400 to-orange-500" },
-            { emoji: "🫔", label: "Empanadas",    color: "from-pink-400  to-pink-600"   },
-            { emoji: "🍳", label: "Platillos",    color: "from-violet-400 to-violet-600" },
-            { emoji: "🫕", label: "Especialidades", color: "from-sky-400 to-cyan-500"   },
+            {
+              img:   "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=480&h=320&fit=crop&auto=format&q=80",
+              label: "Picadas",
+              color: "from-amber-900/65 to-orange-900/40",
+            },
+            {
+              img:   "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=480&h=320&fit=crop&auto=format&q=80",
+              label: "Empanadas",
+              color: "from-pink-900/65 to-rose-900/40",
+            },
+            {
+              img:   "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?w=480&h=320&fit=crop&auto=format&q=80",
+              label: "Platillos",
+              color: "from-violet-900/65 to-purple-900/40",
+            },
+            {
+              img:   "https://images.unsplash.com/photo-1547592180-85f173990554?w=480&h=320&fit=crop&auto=format&q=80",
+              label: "Especialidades",
+              color: "from-sky-900/65 to-cyan-900/40",
+            },
           ].map((item) => (
             <a
               href="#menu"
-              class="flex flex-col items-center gap-3 rounded-4xl bg-white/85 p-5 transition-all duration-300 hover:-translate-y-2"
-              style="box-shadow: var(--shadow-clay-card);"
+              class="group relative overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+              style="box-shadow: var(--shadow-clay-card); aspect-ratio: 4/3;"
             >
-              <div
-                class={`flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br ${item.color} text-xl`}
-                style="box-shadow: var(--shadow-clay-button);"
-              >{item.emoji}</div>
-              <span
-                class="text-center text-xs font-bold text-clay-text"
-                style="font-family: 'Nunito', sans-serif;"
-              >{item.label}</span>
+              <img
+                src={item.img}
+                alt={item.label}
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div class={`absolute inset-0 bg-linear-to-t ${item.color}`}></div>
+              <div class="absolute bottom-0 left-0 right-0 p-3">
+                <span
+                  class="text-sm font-black text-white"
+                  style="font-family: 'Nunito', sans-serif; text-shadow: 0 1px 4px rgba(0,0,0,0.6);"
+                >{item.label}</span>
+              </div>
             </a>
           ))}
         </div>

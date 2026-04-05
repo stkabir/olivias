@@ -48,3 +48,32 @@ const {
 <style is:global>
   @import "../styles/global.css";
 </style>
+
+<script>
+  import AOS from 'aos';
+  import 'aos/dist/aos.css';
+
+  // Asignar data-aos automáticamente a secciones (salvo el hero)
+  // y stagger a las tarjetas dentro de cada grid
+  document.querySelectorAll('main section').forEach((section, si) => {
+    if (si === 0) return; // hero visible al cargar, no animar
+    if (section.id === 'menu') return; // animado por elemento en Services.astro
+
+    section.setAttribute('data-aos', 'fade-up');
+    section.setAttribute('data-aos-duration', '600');
+
+    section.querySelectorAll('.grid > *').forEach((card, ci) => {
+      // Grids grandes (Antojitos, Platillos) animan como bloque via la sección
+      if ((card.parentElement?.children.length ?? 0) > 4) return;
+      card.setAttribute('data-aos', 'fade-up');
+      card.setAttribute('data-aos-delay', String(ci * 70));
+      card.setAttribute('data-aos-duration', '500');
+    });
+  });
+
+  AOS.init({
+    once: true,
+    offset: 60,
+    easing: 'ease-out-cubic',
+  });
+</script>
